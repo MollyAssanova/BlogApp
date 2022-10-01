@@ -14,7 +14,13 @@
      <form action="{{route('posts.store')}}" method="post">
          @csrf
          Title<input type="text" name="title"><br><br>
-         Content:<textarea name="content" cols="40" rows="10"></textarea>
+         Category
+         <select name="category_id">
+             @foreach($categories as $cat)
+              <option value="{{$cat->id}}">{{$cat->name}}</option>
+             @endforeach
+         </select><br>
+         Content:<textarea name="content" cols="40" rows="10"></textarea><br>
          <button type="submit">Save</button>
      </form>
     </body>

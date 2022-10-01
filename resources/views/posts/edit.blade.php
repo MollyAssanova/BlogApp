@@ -15,6 +15,12 @@
          @csrf
          @method('PUT')
          Title<input type="text" name="title" value="{{$post->title}}"><br><br>
+         Category
+         <select name="category_id">
+             @foreach($categories as $cat)
+                 <option @if($cat->id==$post->$category_id) selected @endif value="{{$cat->id}}">{{$cat->name}}</option>
+             @endforeach
+         </select><br>
          Content:<textarea name="content" cols="40" rows="10">{{$post->content}}</textarea>
          <button type="submit">Update post</button>
      </form>
